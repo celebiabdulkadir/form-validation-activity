@@ -24,6 +24,13 @@ const FormValidation = () => {
 			.string()
 			.trim('No leading/trailing whitepaces allowed')
 			.required('Phone number is required')
+			.test(
+				'Digits only',
+				'Phone number must be numeric characters',
+				(value) => {
+					return /^\d+$/.test(value);
+				}
+			)
 			.matches(/^\d{10}$/, 'Phone number must be 10 digits'),
 		address: yup
 			.string()
@@ -36,15 +43,14 @@ const FormValidation = () => {
 		handleSubmit,
 		watch,
 		formState: { errors },
+		reset,
 	} = useForm({ resolver: yupResolver(schema) });
 
 	const onSubmit = (data) => {
-		console.log(data);
+		prompt(JSON.stringify(data, null, 2));
+		reset();
 	};
-	const pattern = {
-		value: /^[a-zA-Z0-9\s]*$/,
-		message: 'Invalid character',
-	};
+
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
