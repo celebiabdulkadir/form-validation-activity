@@ -39,8 +39,6 @@ const FormValidation = () => {
 	} = useForm({ resolver: yupResolver(schema) });
 
 	const onSubmit = (data) => {
-		// Trimming the values
-
 		console.log(data);
 	};
 	const pattern = {
@@ -50,76 +48,75 @@ const FormValidation = () => {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className='flex flex-col space-y-4 bg-violet-300 px-48 py-20 rounded'
+			className='flex flex-col justify-center items-center space-y-4 bg-violet-300 sm:bg-violet-300 px-2 py-2 sm:px-6 sm:py-4 lg:px-48 lg:py-20 h-full  rounded w-full sm:w-2/3 lg:w-1/2'
 		>
-			<div className='flex flex-col'>
+			<h1 className='text-center text-3xl font-bold'>LOGIN</h1>
+			<div className='flex flex-col w-full'>
 				<label className='font-bold'>First Name</label>
 				<input
-					{...register('firstName', {
-						required: 'First name is required',
-						pattern,
-					})}
-					className='border p-2 rounded text-black'
+					{...register('firstName')}
+					className='border p-2 rounded text-black w-full '
 				/>
-				{errors.firstName && (
-					<p className='text-red-600'>{errors.firstName.message}</p>
-				)}
+				<p className={`text-red-600 ${errors.firstName ? '' : 'invisible'}`}>
+					{errors.firstName?.message || 'Placeholder'}
+				</p>
 			</div>
 
-			<div className='flex flex-col'>
+			<div className='flex flex-col w-full'>
 				<label className='font-bold'>Last Name</label>
 				<input
-					{...register('lastName', {
-						required: 'Last name is required',
-						pattern,
-					})}
-					className='border p-2 rounded text-black'
+					{...register('lastName')}
+					className='border p-2 rounded text-black w-full'
 				/>
-				{errors.lastName && (
-					<p className='text-red-600'>{errors.lastName.message}</p>
-				)}
+				<p className={`text-red-600 ${errors.lastName ? '' : 'invisible'}`}>
+					{errors.lastName?.message || 'Placeholder'}
+				</p>
 			</div>
 
-			<div className='flex flex-col'>
+			<div className='flex flex-col w-full'>
 				<label className='font-bold'>Email</label>
 				<input
 					{...register('email')}
-					className='border p-2 rounded text-black'
+					className='border p-2 rounded text-black w-full'
 				/>
-				{errors.email && <p className='text-red-600'>{errors.email.message}</p>}
+				<p className={`text-red-600 ${errors.email ? '' : 'invisible'}`}>
+					{errors.email?.message || 'Placeholder'}
+				</p>
 			</div>
 
-			<div className='flex flex-col'>
+			<div className='flex flex-col w-full'>
 				<label className='font-bold'>Phone</label>
 				<input
 					{...register('phone')}
-					className='border p-2 rounded text-black'
+					className='border p-2 rounded text-black w-full'
 				/>
-				{errors.phone && <p className='text-red-600'>{errors.phone.message}</p>}
+				<p className={`text-red-600 ${errors.phone ? '' : 'invisible'}`}>
+					{errors.phone?.message || 'Placeholder'}
+				</p>
 			</div>
 
-			<div className='flex flex-col'>
+			<div className='flex flex-col w-full'>
 				<label className='font-bold'>Address</label>
 				<input
 					{...register('address')}
-					className='border p-2 rounded text-black'
+					className='border p-2 rounded text-black w-full'
 				/>
-				{errors.address && (
-					<p className='text-red-600'>{errors.address.message}</p>
-				)}
+				<p className={`text-red-600 ${errors.address ? '' : 'invisible'}`}>
+					{errors.address?.message || 'Placeholder'}
+				</p>
 			</div>
 
-			<div className='flex items-center space-x-2'>
+			<div className='flex items-center space-x-2 w-full'>
 				<input type='checkbox' {...register('checkbox')} />
 				<label className='font-bold'>Agree to terms</label>
 			</div>
-			{errors.checkbox && (
-				<p className='text-red-600'>{errors.checkbox.message}</p>
-			)}
+			<p className={`text-red-600 ${errors.checkbox ? '' : 'invisible'}`}>
+				{errors.checkbox?.message || 'Placeholder'}
+			</p>
 
 			<input
 				type='submit'
-				className='bg-blue-600 text-white p-2 rounded cursor-pointer'
+				className='bg-blue-600 hover:scale-105 hover:bg-blue-800 text-white p-2 rounded cursor-pointer'
 			/>
 		</form>
 	);
