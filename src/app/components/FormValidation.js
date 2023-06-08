@@ -56,7 +56,7 @@ const FormValidation = () => {
 			onSubmit={handleSubmit(onSubmit)}
 			className='flex flex-col justify-center items-center space-y-4 bg-violet-300 sm:bg-violet-300 px-2 py-2 sm:px-6 sm:py-4 lg:px-48 lg:py-20 h-full  rounded w-full sm:w-2/3 lg:w-1/2'
 		>
-			<h1 className='text-center text-3xl font-bold'>LOGIN</h1>
+			<h1 className='text-center text-3xl font-bold'>SIGN UP</h1>
 			<div className='flex flex-col w-full'>
 				<label className='font-bold'>First Name</label>
 				<input
