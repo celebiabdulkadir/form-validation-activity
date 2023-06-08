@@ -18,6 +18,10 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Live
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2dc87919-234d-4f91-a798-e31c94709371/deploy-status)](https://next-form-recoded.netlify.app)
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
