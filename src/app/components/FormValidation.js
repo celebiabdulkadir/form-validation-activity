@@ -116,7 +116,7 @@ const FormValidation = () => {
 				<input type='checkbox' {...register('checkbox')} />
 				<label className='font-bold'>Agree to terms</label>
 			</div>
-			<p className={`text-red-600 ${errors.checkbox ? '' : 'invisible'}`}>
+			<p className={`text-red-600 text-left ${errors.checkbox ? '' : 'invisible'}`}>
 				{errors.checkbox?.message || 'Placeholder'}
 			</p>
 
